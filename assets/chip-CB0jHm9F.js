@@ -1,0 +1,2 @@
+import{t as e}from"./jsx-runtime-BCwssusz.js";import{r as t}from"./screen-store-BxaRM6s3.js";import{g as n}from"./screen-DqcMl9zj.js";var r=e(),i=t(function(e){let{children:t,isSelected:i,onClick:a,fullWidth:o}=e;return(0,r.jsx)(`div`,{onClick:a,className:n(`flex items-center justify-center px-3 py-2 rounded-[10px] bg-bg shadow text-sm font-medium cursor-pointer text-text`,i&&`bg-button text-button-text`,o&&`w-full`),children:t})});export{i as t};
+//# sourceMappingURL=chip-CB0jHm9F.js.map
