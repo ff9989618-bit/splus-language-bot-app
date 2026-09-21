@@ -1,2 +1,0 @@
-import{t as e}from"./rolldown-runtime-CNC7AqOf.js";import{t}from"./react-dom-BOVea449.js";var n=e((e=>{var n=t();e.createRoot=n.createRoot,e.hydrateRoot=n.hydrateRoot}));export{n as t};
-//# sourceMappingURL=client-CkNhuEVU.js.map

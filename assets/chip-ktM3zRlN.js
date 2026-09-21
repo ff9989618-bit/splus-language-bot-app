@@ -1,2 +1,0 @@
-import{t as e}from"./jsx-runtime-C2bZ767v.js";import{r as t}from"./screen-store-Dh6AvbwZ.js";import{g as n}from"./screen-Ds22THoQ.js";var r=e(),i=t(function(e){let{children:t,isSelected:i,onClick:a,fullWidth:o}=e;return(0,r.jsx)(`div`,{onClick:a,className:n(`flex items-center justify-center px-3 py-2 rounded-[10px] bg-bg shadow text-sm font-medium cursor-pointer text-text`,i&&`bg-button text-button-text`,o&&`w-full`),children:t})});export{i as t};
-//# sourceMappingURL=chip-ktM3zRlN.js.map
