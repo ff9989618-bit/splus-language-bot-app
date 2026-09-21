@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <!-- Soroush Plus WebApp SDK must be the very first script in <head> -->
+    <script src="https://app.splus.ir/js/soroush-web-app.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>بات زبان</title>
+    <meta name="description" content="برنامک بات زبان در سروش‌پلاس" />
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #1c1c1e;
+        --hint-color: #8e8e93;
+        --link-color: #007aff;
+        --button-color: #007aff;
+        --button-text-color: #ffffff;
+        --secondary-bg-color: #f2f2f7;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 24px 20px;
+        background: var(--bg-color);
+        color: var(--text-color);
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Tahoma,
+          Vazirmatn,
+          sans-serif;
+        text-align: center;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 420px;
+        background: var(--secondary-bg-color);
+        border-radius: 20px;
+        padding: 32px 24px;
+      }
+
+      .icon {
+        font-size: 44px;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: 20px;
+        margin: 0 0 8px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.9;
+        color: var(--hint-color);
+        margin: 0 0 20px;
+      }
+
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 12px;
+        background: var(--button-color);
+        color: var(--button-text-color);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 12px 20px;
+        width: 100%;
+        cursor: pointer;
+        font-family: inherit;
+      }
+
+      button:active {
+        opacity: 0.85;
+      }
+
+      .status {
+        margin-top: 14px;
+        font-size: 12px;
+        color: var(--hint-color);
+        min-height: 16px;
+      }
+
+      @media (min-width: 768px) {
+        .card {
+          padding: 40px 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h1>برنامک بات زبان</h1>
+      <p>این صفحه به‌عنوان برنامک بات در سروش‌پلاس در حال اجراست. به‌زودی امکانات اصلی همین‌جا اضافه می‌شود.</p>
+      <button id="main-action">شروع کنید</button>
+      <div class="status" id="status"></div>
+    </div>
+
+    <script>
+      (function () {
+        var statusEl = document.getElementById("status");
+        var btn = document.getElementById("main-action");
+        var webApp = window.Soroush && window.Soroush.WebApp;
+
+        function applyTheme() {
+          if (!webApp || !webApp.themeParams) return;
+          var t = webApp.themeParams;
+          var root = document.documentElement.style;
+          if (t.bg_color) root.setProperty("--bg-color", t.bg_color);
+          if (t.text_color) root.setProperty("--text-color", t.text_color);
+          if (t.hint_color) root.setProperty("--hint-color", t.hint_color);
+          if (t.link_color) root.setProperty("--link-color", t.link_color);
+          if (t.button_color) root.setProperty("--button-color", t.button_color);
+          if (t.button_text_color) root.setProperty("--button-text-color", t.button_text_color);
+          if (t.secondary_bg_color) root.setProperty("--secondary-bg-color", t.secondary_bg_color);
+        }
+
+        if (webApp) {
+          applyTheme();
+          webApp.onEvent("themeChanged", applyTheme);
+          webApp.expand();
+          webApp.ready();
+
+          var user = webApp.initDataUnsafe && webApp.initDataUnsafe.user;
+          if (user && user.first_name) {
+            statusEl.textContent = "سلام " + user.first_name + " 👋";
+          } else {
+            statusEl.textContent = "نسخه: " + (webApp.version || "نامشخص") + " · پلتفرم: " + (webApp.platform || "نامشخص");
+          }
+
+          btn.addEventListener("click", function () {
+            webApp.HapticFeedback && webApp.HapticFeedback.impactOccurred("light");
+            webApp.showAlert
+              ? webApp.showAlert("امکانات اصلی به‌زودی اضافه می‌شود!")
+              : alert("امکانات اصلی به‌زودی اضافه می‌شود!");
+          });
+        } else {
+          statusEl.textContent = "این صفحه باید داخل سروش‌پلاس باز شود.";
+          btn.addEventListener("click", function () {
+            alert("لطفاً این لینک را از داخل سروش‌پلاس باز کنید.");
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
