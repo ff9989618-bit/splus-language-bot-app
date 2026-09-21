@@ -1,0 +1,16 @@
+{
+  "name": "MemoCard",
+  "short_name": "MemoCard",
+  "description": "Improve your memory with spaced repetition. Learn languages, history or other subjects with the proven flashcard method.",
+  "display": "standalone",
+  "background_color": "#efeff3",
+  "theme_color": "#efeff3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
